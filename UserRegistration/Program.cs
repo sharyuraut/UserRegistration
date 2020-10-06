@@ -107,7 +107,7 @@ namespace UserRegistration
         }
         private bool validatePassword(string password)
         {
-            String passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+            String passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$";
             return Regex.IsMatch(password, passwordPattern);
         }
         private bool validatemobileNumber(string MobileNumber)
