@@ -86,7 +86,7 @@ namespace UserRegistration
 
         private bool validatemobileNumber(string MobileNumber)
         {
-            String MobilePattern = @"^[1-9][0-9]\s[1-9][0-9]{9}$";
+            String MobilePattern = @"^[\\+]{1}[91]{2}\\s{1}[0-9]{10}$";
             return Regex.IsMatch(MobileNumber, MobilePattern);
         }
 
