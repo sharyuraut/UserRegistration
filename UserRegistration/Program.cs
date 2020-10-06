@@ -8,7 +8,6 @@ namespace UserRegistration
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to User Registration Program!");
-
             bool validate = true;
             int flag = 0;
             Program check = new Program();
@@ -31,7 +30,6 @@ namespace UserRegistration
             }
             validate = true;
             flag = 0;
-
 
             while (validate)
             {
@@ -88,7 +86,6 @@ namespace UserRegistration
                     Console.WriteLine("Not a valid Mobile number.");
             }
         }
-
         private bool validatemobileNumber(string MobileNumber)
         {
             String MobilePattern = @"^[\\+]{1}[91]{2}\\s{1}[0-9]{10}$";
