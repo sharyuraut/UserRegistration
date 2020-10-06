@@ -111,7 +111,6 @@ namespace UserRegistration
             String passwordPattern = @"^(?=.*[a-z]).{8,}$";
             return Regex.IsMatch(password, passwordPattern);
         }
-
         private bool validatemobileNumber(string MobileNumber)
         {
             String MobilePattern = "^[\\+]{1}[91]{2}\\s{1}[0-9]{10}$";
