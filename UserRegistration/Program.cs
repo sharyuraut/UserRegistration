@@ -13,9 +13,10 @@ namespace UserRegistration
             int flag = 0;
             Program check = new Program();
 
-            while(validate)
+            while (validate)
             {
-                if(flag == 0)
+                if (flag == 0)
+
                     Console.WriteLine("Enter your first name: ");
                 else
                     Console.WriteLine("Enter your first name again: ");
@@ -27,7 +28,26 @@ namespace UserRegistration
                 if (Result)
                     validate = false;
                 else
-                    Console.WriteLine("Not a valid name.");
+                    Console.WriteLine("Not a valid first name.");
+            }
+            validate = true;
+
+            while (validate)
+            {
+                if (flag == 0)
+                    Console.WriteLine("Enter your last name: ");
+                else
+                    Console.WriteLine("Enter your last name again: ");
+
+                flag = 1;
+                string LastName = Console.ReadLine();
+
+                Boolean Result = check.validateName(LastName);
+                if (Result)
+                    validate = false;
+                else
+                    Console.WriteLine("Not a valid last name.");
+
             }
         }
 
