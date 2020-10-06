@@ -118,7 +118,7 @@ namespace UserRegistration
 
         private bool validateEmail(string emailId)
         {
-            String EmailPattern = @"^[a-z][a-z0-9]+(\.[a-z0-9]+)?@[a-z0-9]+\.[a-z]{2,}(\.[a-z]{2,})?$";
+            String EmailPattern = @"^([a-z0-9.+_-]+@(?:[a-z0-9]+?\.)[a-z0-9.]+)$";
             return Regex.IsMatch(emailId, EmailPattern);
         }
 
