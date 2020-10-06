@@ -21,6 +21,7 @@ namespace UserRegistration
 
                 flag = 1;
                 string FirstName = Console.ReadLine();
+
                 bool Result = check.validateName(FirstName);
                 if (Result)
                     validate = false;
@@ -39,6 +40,7 @@ namespace UserRegistration
 
                 flag = 1;
                 string LastName = Console.ReadLine();
+
                 bool Result = check.validateName(LastName);
                 if (Result)
                     validate = false;
@@ -57,6 +59,7 @@ namespace UserRegistration
 
                 flag = 1;
                 string EmailId = Console.ReadLine();
+
                 bool Result = check.validateEmail(EmailId);
                 if (Result)
                     validate = false;
@@ -82,10 +85,34 @@ namespace UserRegistration
                 else
                     Console.WriteLine("Not a valid Mobile number.");
             }
+            validate = true;
+            flag = 0;
+
+            while (validate)
+            {
+                if (flag == 0)
+                    Console.WriteLine("Enter your Password: ");
+                else
+                    Console.WriteLine("Enter your Password again: ");
+
+                flag = 1;
+                string Password = Console.ReadLine();
+
+                bool Result = check.validatePassword(Password);
+                if (Result)
+                    validate = false;
+                else
+                    Console.WriteLine("Not a valid Password.");
+            }
+        }
+        private bool validatePassword(string password)
+        {
+            String passwordPattern = @"^(?=.*[a-z]).{8,}$";
+            return Regex.IsMatch(password, passwordPattern);
         }
         private bool validatemobileNumber(string MobileNumber)
         {
-            String MobilePattern = @"^[\\+]{1}[91]{2}\\s{1}[0-9]{10}$";
+            String MobilePattern = "^[\\+]{1}[91]{2}\\s{1}[0-9]{10}$";
             return Regex.IsMatch(MobileNumber, MobilePattern);
         }
 
