@@ -16,6 +16,7 @@ namespace UserRegistration
             while (validate)
             {
                 if (flag == 0)
+
                     Console.WriteLine("Enter your first name: ");
                 else
                     Console.WriteLine("Enter your first name again: ");
@@ -46,6 +47,7 @@ namespace UserRegistration
                     validate = false;
                 else
                     Console.WriteLine("Not a valid last name.");
+
             }
         }
 
