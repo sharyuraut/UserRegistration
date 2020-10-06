@@ -16,7 +16,6 @@ namespace UserRegistration
             while (validate)
             {
                 if (flag == 0)
-
                     Console.WriteLine("Enter your first name: ");
                 else
                     Console.WriteLine("Enter your first name again: ");
@@ -31,6 +30,7 @@ namespace UserRegistration
                     Console.WriteLine("Not a valid first name.");
             }
             validate = true;
+            flag = 0;
 
             while (validate)
             {
@@ -47,8 +47,35 @@ namespace UserRegistration
                     validate = false;
                 else
                     Console.WriteLine("Not a valid last name.");
-
             }
+            validate = true;
+            flag = 0;
+
+            while (validate)
+            {
+                if (flag == 0)
+                    Console.WriteLine("Enter your EmailId: ");
+                else
+                    Console.WriteLine("Enter your EmailId again: ");
+
+                flag = 1;
+                string EmailId = Console.ReadLine();
+
+                Boolean Result = check.validateEmail(EmailId);
+                if (Result)
+                    validate = false;
+                else
+                    Console.WriteLine("Not a valid last name.");
+            }
+        }
+
+        private bool validateEmail(string emailId)
+        {
+            String EmailPattern = @"^[a-z][a-z0-9]+(\.[a-z0-9]+)?@[a-z0-9]+\.[a-z]{2,}(\.[a-z]{2,})?$";
+            Regex Pattern = new Regex(EmailPattern);
+
+            Boolean result = Pattern.IsMatch(emailId);
+            return result;
         }
 
         private Boolean validateName(String name)
