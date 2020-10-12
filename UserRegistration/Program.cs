@@ -5,7 +5,11 @@ namespace UserRegistration
 {
     class Program
     {
-        public String passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d].{8,}$";
+        public static String passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d].{8,}$";
+        public static String MobilePattern = "^[\\+]{1}[91]{2}\\s{1}[0-9]{10}$";
+        public static String EmailPattern = @"^([a-z0-9.+_-]+@(?:[a-z0-9]+?\.)[a-z0-9.]+)$";
+        public static String namePattern = @"^[A-Z]{1}[a-z]{2,}$";
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to User Registration Program!");
@@ -23,7 +27,7 @@ namespace UserRegistration
                 flag = 1;
                 string FirstName = Console.ReadLine();
 
-                bool Result = check.validateName(FirstName);
+                bool Result = check.validateField(FirstName, namePattern);
                 if (Result)
                     validate = false;
                 else
@@ -42,7 +46,7 @@ namespace UserRegistration
                 flag = 1;
                 string LastName = Console.ReadLine();
 
-                bool Result = check.validateName(LastName);
+                bool Result = check.validateField(LastName, namePattern);
                 if (Result)
                     validate = false;
                 else
@@ -61,7 +65,7 @@ namespace UserRegistration
                 flag = 1;
                 string EmailId = Console.ReadLine();
 
-                bool Result = check.validateEmail(EmailId);
+                bool Result = check.validateField(EmailId, EmailPattern);
                 if (Result)
                     validate = false;
                 else
@@ -80,7 +84,7 @@ namespace UserRegistration
                 flag = 1;
                 string MobileNumber = Console.ReadLine();
 
-                bool Result = check.validatemobileNumber(MobileNumber);
+                bool Result = check.validateField(MobileNumber, MobilePattern);
                 if (Result)
                     validate = false;
                 else
@@ -99,7 +103,7 @@ namespace UserRegistration
                 flag = 1;
                 string Password = Console.ReadLine();
 
-                bool Result = check.validatePassword(Password);
+                bool Result = check.validateField(Password, passwordPattern);
                 if (Result)
                     validate = false;
                 else
@@ -109,32 +113,9 @@ namespace UserRegistration
             Console.WriteLine("Registration Successful!!!");
         }
 
-        //Validates Password given by user
-        private bool validatePassword(string password)
+        private bool validateField(string Field, string Pattern)
         {
-            //String passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d].{8,}$";
-            return Regex.IsMatch(password, passwordPattern);
-        }
-
-        //Validates MobileNumber of user
-        private bool validatemobileNumber(string MobileNumber)
-        {
-            String MobilePattern = "^[\\+]{1}[91]{2}\\s{1}[0-9]{10}$";
-            return Regex.IsMatch(MobileNumber, MobilePattern);
-        }
-
-        //Validates EmailId of user
-        private bool validateEmail(string emailId)
-        {
-            String EmailPattern = @"^([a-z0-9.+_-]+@(?:[a-z0-9]+?\.)[a-z0-9.]+)$";
-            return Regex.IsMatch(emailId, EmailPattern);
-        }
-
-        //Validates Name(First and Last Name) Field of user
-        private bool validateName(String name)
-        {
-            String namePattern = @"^[A-Z]{1}[a-z]{2,}$";
-            return Regex.IsMatch(name, namePattern);
+            return Regex.IsMatch(Field, Pattern);
         }
     }
 }
