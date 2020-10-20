@@ -6,10 +6,6 @@ namespace UserRegistrationTest
     public class UnitTest1
     {
         [TestMethod]
-
-        [DataRow("Sunny", true)]
-        [DataRow("sunny", false)]
-        [DataRow("su", false)]
         public void ValidateFirstNameShouldReturnExpectedResult(string firstName, bool expectedResult)
         {
             Validate validate = new Validate();
@@ -20,9 +16,6 @@ namespace UserRegistrationTest
         }
         [TestMethod]
 
-        [DataRow("Bunny", true)]
-        [DataRow("bunny", false)]
-        [DataRow("bu", false)]
         public void ValidateLastNameShouldReturnExpectedResult(string lastName, bool expectedResult)
         {
             Validate validate = new Validate();
